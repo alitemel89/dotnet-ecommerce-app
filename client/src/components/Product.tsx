@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useCartStore } from "../stores/useCartStore";
 import { IProduct } from "../stores/useProductStore";
 
 interface Props {
@@ -6,7 +8,7 @@ interface Props {
 }
 
 function Product({ product }: Props) {
-  console.log(product);
+  const { addCartItem } = useCartStore();
 
   return (
     <li key={product.id} className="bg-white rounded-lg m-4 shadow-md p-4">
@@ -31,9 +33,11 @@ function Product({ product }: Props) {
       <p className="text-gray-500 mt-2">
         Stock Quantity: {product.stockQuantity}
       </p>
-      <button className="px-4 py-2 bg-rose-600 text-white rounded-md w-full mt-4">
-        ADD TO CART
+      <Link to={`/products/${product.id}`}>
+      <button onClick={() => addCartItem(product)} className="px-4 py-2 bg-rose-600 text-white rounded-md w-full mt-4">
+        PRODUCT DETAILS
       </button>
+      </Link>
     </li>
   );
 }

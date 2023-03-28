@@ -11,12 +11,15 @@ export interface IProduct {
 }
 
 export interface ProductState {
+  product: IProduct | null;
   products: IProduct[];
   fetchProducts: () => Promise<void>;
+  fetchSingleProduct: (id: string ) => Promise<void>;
 }
 
 export const useProductStore = create<ProductState>((set) => ({
   products: [],
+  product: null,
   fetchProducts: async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/products");
@@ -24,5 +27,10 @@ export const useProductStore = create<ProductState>((set) => ({
     } catch (error) {
       console.error(error);
     }
+  },
+  fetchSingleProduct: async (id: string ) => {
+    const response = await fetch(`http://localhost:5000/api/products/${id}`);
+    const product = await response.json();
+    set({ product });
   },
 }));

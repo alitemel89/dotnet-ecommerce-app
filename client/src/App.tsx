@@ -1,13 +1,21 @@
-import CategoryList from "./components/CategoryList";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import ProductList from "./components/ProductList";
+import HomePage from "./scenes/HomePage";
 
 function App() {
+  const location = useLocation();
   return (
     <>
-        <Navbar />
-        <CategoryList />
-        <ProductList />
+      <Navbar />
+      {location.pathname === "/" ? (
+        <>
+          <HomePage />
+        </>
+      ) : (
+        <>
+          <Outlet />
+        </>
+      )}
     </>
   );
 }

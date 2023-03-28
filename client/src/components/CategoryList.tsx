@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CatergoryList() {
+function CategoryList() {
   const categories = [
     { name: "Makeup", link: "/" },
     { name: "Skincare", link: "/" },
@@ -24,4 +24,4 @@ function CatergoryList() {
   );
 }
 
-export default CatergoryList;
+export default CategoryList;

@@ -6,14 +6,21 @@ import {
   MapPinIcon,
 } from "@heroicons/react/24/outline";
 import DropdownItem from "./DropdownItem";
+import { useCartStore } from "../stores/useCartStore";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const { cartItems } = useCartStore();
+  console.log(cartItems.length);
+
   return (
     <div>
       <div className="flex justify-between items-center space-x-8 px-12 h-24">
         <div>
-          <h1 className="text-3xl font-bold tracking-wider">SEPHORA</h1>
+          <Link to="/">
+            <h1 className="text-3xl font-bold tracking-wider">SEPHORA</h1>
+          </Link>
         </div>
 
         {/* SearchBar */}
@@ -57,12 +64,17 @@ function Navbar() {
             className="h-6 w-6 cursor-pointer"
             onMouseOver={() => setOpen(true)}
           />
-          <span
-            className="absolute right-6 top-8 md:right-10 md:top-8 rounded-full bg-emerald-600 w-4 h-4 
-            p-0 m-0 text-white font-mono font-bold text-sm leading-tight text-center"
-          >
-            2
-          </span>
+          {cartItems.length ? (
+            <span
+              className="absolute right-6 top-8 md:right-10 md:top-8 rounded-full bg-emerald-600 w-4 h-4 
+            p-0 m-0 text-white font-mono text-sm leading-tight text-center"
+            >
+              {cartItems.length}
+            </span>
+          ) : (
+            <span className="hidden"></span>
+          )}
+
           <div
             className={`absolute z-50 top-10 bg-gray-50 right-16 w-96 py-2 mt-2 rounded-lg shadow-xl ${
               open ? "block" : "hidden"
