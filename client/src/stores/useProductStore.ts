@@ -1,7 +1,7 @@
 import axios from "axios";
 import { create } from "zustand";
 
-export interface Product {
+export interface IProduct {
   id: string;
   name: string;
   price: number;
@@ -11,7 +11,7 @@ export interface Product {
 }
 
 export interface ProductState {
-  products: Product[];
+  products: IProduct[];
   fetchProducts: () => Promise<void>;
 }
 

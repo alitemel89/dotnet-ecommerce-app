@@ -3,10 +3,10 @@ import ProductList from "./components/ProductList";
 
 function App() {
   return (
-    <div>
+    <>
         <Navbar />
         <ProductList />
-    </div>
+    </>
   );
 }
 

@@ -19,7 +19,7 @@ namespace API.Data
                         Name = "Lipstick",
                         Description = "Long-lasting matte lipstick",
                         Price = 9.99M,
-                        Category="Make Up",
+                        Category="Make-Up",
                         StockQuantity=12
                     },
                     new Product
@@ -27,7 +27,7 @@ namespace API.Data
                         Name = "Mascara",
                         Description = "Lengthening and volumizing mascara",
                         Price = 12.99M,
-                        Category= "Make Up",
+                        Category= "Make-Up",
                         StockQuantity=5
                     },
                     new Product
