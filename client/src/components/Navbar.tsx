@@ -31,7 +31,7 @@ function Navbar() {
         </div>
 
         {/* Shops and Services */}
-        <div className="flex items-center space-x-2">
+        <div className="md:flex hidden items-center space-x-2">
           <MapPinIcon className="h-6 w-6 cursor-pointer" />
           <p className="md:flex hidden cursor-pointer md:w-max">
             Shops & Services
