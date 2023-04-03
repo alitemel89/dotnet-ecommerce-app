@@ -76,23 +76,18 @@ function Navbar() {
           )}
 
           <div
-            className={`absolute z-50 top-10 bg-gray-50 right-16 w-96 py-2 mt-2 rounded-lg shadow-xl ${
-              open ? "block" : "hidden"
-            }`}
+            className={`hidden md:absolute z-50 top-10 w-96 bg-gray-50 right-16 
+           py-2 mt-2 rounded-lg shadow-xl  ${open ? "md:block" : "hidden"}`}
           >
             {/* CartItems */}
             <DropdownItem
               name="Sephora Collection"
+              details="Instantly extra-large lashes with 
+              lengthening and curling effect for large lashes even on the first swipe"
               description="Size up mascara"
               price={32.99}
               quantity={2}
             />
-            <button
-              className="bg-rose-600 px-4 py-2 
-            rounded-md text-white flex text-center text-xl my-2 mx-auto"
-            >
-              Complete Shopping
-            </button>
           </div>
         </div>
       </div>
