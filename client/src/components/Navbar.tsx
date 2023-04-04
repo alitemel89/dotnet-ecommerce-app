@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   ShoppingBagIcon,
   MagnifyingGlassIcon,
@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const { cartItems } = useCartStore();
-  console.log(cartItems.length);
 
   return (
     <div>
@@ -76,18 +75,25 @@ function Navbar() {
           )}
 
           <div
-            className={`hidden md:absolute z-50 top-10 w-96 bg-gray-50 right-16 
+            className={`hidden md:absolute z-50 top-10 w-96 bg-gray-50 right-16
            py-2 mt-2 rounded-lg shadow-xl  ${open ? "md:block" : "hidden"}`}
           >
             {/* CartItems */}
-            <DropdownItem
-              name="Sephora Collection"
-              details="Instantly extra-large lashes with 
-              lengthening and curling effect for large lashes even on the first swipe"
-              description="Size up mascara"
-              price={32.99}
-              quantity={2}
-            />
+            {cartItems.map((item) => (
+              <DropdownItem
+                key={item.productId}
+                name={item.productName}
+                description={item.productDescription}
+                price={item.productPrice}
+                quantity={item.quantity}
+                category={item.productCategory}
+              />
+            ))}
+            <button
+              className={`${cartItems.length === 0 ? "hidden" : "btn px-2"}`}
+            >
+              Complete Shopping
+            </button>
           </div>
         </div>
       </div>
