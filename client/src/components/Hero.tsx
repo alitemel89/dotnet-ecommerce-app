@@ -5,7 +5,7 @@ function Hero() {
     <div className="bg-slate-50 bg-hero-image h-[60vh]">
       <div className="flex flex-col">
         <div className="md:self-end mt-20 md:p-10 max-w-3xl">
-          <div className="m-2 mt-10">
+          <div className="m-4 mt-10 md:mx-4">
             <h2 className="text-2xl font-bold sm:text-3xl, md:text-4xl text-white md:text-black">
               NEW FENTY BEAUTY HELLA THICC MASCARA!
             </h2>
