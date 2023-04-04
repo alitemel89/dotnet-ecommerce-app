@@ -1,6 +1,5 @@
 import {  useEffect } from "react";
 import { useProductStore } from "../stores/useProductStore";
-import CatergoryList from "./CategoryList";
 import Product from "./Product";
 
 function ProductList() {

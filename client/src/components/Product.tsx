@@ -8,8 +8,6 @@ interface Props {
 }
 
 function Product({ product }: Props) {
-  const { addCartItem } = useCartStore();
-
   return (
     <Link to={`/products/${product.id}`}>
       <li
@@ -38,7 +36,7 @@ function Product({ product }: Props) {
         </p>
         <button className="btn"
         >
-          PRODUCT DETAILS
+          Product Details
         </button>
       </li>
     </Link>
