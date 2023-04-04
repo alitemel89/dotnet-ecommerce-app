@@ -6,7 +6,7 @@ function OrderSummaryPage() {
   const { cartItems } = useCartStore();
 
   return (
-    <div>
+    <div className="bg-slate-100 h-screen">
       {cartItems.length > 0 ? (
         <OrderSummary />
       ) : (

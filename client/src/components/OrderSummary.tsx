@@ -46,7 +46,7 @@ function OrderSummary() {
         ))}
       </div>
 
-      <div className="md:w-1/3 shadow-md rounded-md p-4 md:p-8 h-min">
+      <div className="md:w-1/3 shadow-md rounded-md p-4 md:p-8 h-min bg-white">
         <h2 className="text-2xl font-medium mb-4 uppercase text-center">
           Order Summary
         </h2>
