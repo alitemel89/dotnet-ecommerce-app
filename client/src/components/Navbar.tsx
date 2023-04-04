@@ -89,11 +89,13 @@ function Navbar() {
                 category={item.productCategory}
               />
             ))}
+            <Link to="/cart">
             <button
               className={`${cartItems.length === 0 ? "hidden" : "btn px-2"}`}
             >
               Complete Shopping
             </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import App from "../App";
 import ProductDetails from "../scenes/ProductDetails";
+import OrderSummaryPage from "../scenes/OrderSummaryPage";
 
 export const routes: RouteObject[] = [
     {
@@ -8,6 +9,7 @@ export const routes: RouteObject[] = [
         element: <App />,
         children: [
             { path: "products/:id", element: <ProductDetails /> },
+            { path: "cart", element: <OrderSummaryPage /> },
         ]
 
     },

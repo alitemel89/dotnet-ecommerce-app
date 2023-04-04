@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useProductStore } from "../stores/useProductStore";
-import { formatPrice } from "../utils/formatPrice";
+import { formatPrice } from "../utils/cartUtils";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useCartStore } from "../stores/useCartStore";
 
