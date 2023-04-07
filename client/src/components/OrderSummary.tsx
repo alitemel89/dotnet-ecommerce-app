@@ -2,6 +2,7 @@ import React from "react";
 import { useCartStore } from "../stores/useCartStore";
 import { calculateTotal } from "../utils/cartUtils";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 function OrderSummary() {
   const { cartItems, removeCartItem } = useCartStore();
@@ -60,7 +61,9 @@ function OrderSummary() {
             ${calculateTotal(cartItems).toFixed(2)}
           </p>
         </div>
-        <button className="btn">Proceed to Checkout</button>
+        <Link to="/checkout">
+          <button className="btn">Proceed to Checkout</button>
+        </Link>
       </div>
     </div>
   );
