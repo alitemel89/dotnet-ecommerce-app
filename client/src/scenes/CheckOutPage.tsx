@@ -3,17 +3,16 @@ import { CartItem, useCartStore } from "../stores/useCartStore";
 import { calculateTotal } from "../utils/cartUtils";
 import Success from "../components/Success";
 import { useCheckoutStore } from "../stores/useCheckoutStore";
-
+import * as Yup from "yup";
 
 function CheckoutPage() {
   const { cartItems } = useCartStore();
   const { createOrder, isLoading, success } = useCheckoutStore();
   const [customerName, setCustomerName] = useState("");
-  const [surname, setSurname] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const items = cartItems.map((item: CartItem) => ({
       productId: item.productId,
@@ -30,18 +29,21 @@ function CheckoutPage() {
     });
   };
 
-  if (success) return <Success />
 
+  const validationSchema = Yup.object({
+    customerName: Yup.string().required("The customer name is required"),
+    address: Yup.string().required("The address is required"),
+    phone: Yup.string().required("The phone number is required"),
+  });
+
+  if (isLoading) return <p>Loading...</p>
+
+  if (success) return <Success />;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Checkout
-          </h2>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="h-screen bg-gray-100 px-12 py-8">
+      <div className="md:flex justify-center gap-4 px-12 w-full">
+        <div className="bg-white p-6 rounded-lg shadow-md md:w-1/3">
           <h3 className="text-xl font-bold mb-4">Order Summary</h3>
           {cartItems.map((item) => (
             <div key={item.productId} className="flex mb-4">
@@ -63,7 +65,7 @@ function CheckoutPage() {
             </div>
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white rounded-lg p-6 shadow-md md:w-1/2 w-full">
           <h3 className="text-xl font-bold mb-4">Shipping Address</h3>
           <form>
             <div className="mb-4">
@@ -98,27 +100,19 @@ function CheckoutPage() {
             <div className="mb-4">
               <label
                 className="block text-gray-700 font-bold mb-2"
-                htmlFor="city"
+                htmlFor="phone"
               >
-                City
+                Phone Number
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
                 leading-tight focus:outline-none focus:shadow-outline"
                 id="city"
                 type="text"
-                placeholder="New York"
+                placeholder="0555-XXX-XX-XX"
               />
             </div>
-            <div className="mb-4">
-              <label
-                className="block text-gray-700 font-bold mb-2"
-                htmlFor="state"
-              >
-                State
-              </label>
-              <input className="shadow" />
-            </div>
+            <button className="btn">Place Order</button>
           </form>
         </div>
       </div>
