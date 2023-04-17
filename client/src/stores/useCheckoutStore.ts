@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Order = {
+export type Order = {
   customerName: string;
   address: string;
   phone: string;
@@ -8,14 +8,14 @@ type Order = {
   totalPrice: number;
 };
 
-type OrderItem = {
+export type OrderItem = {
   productId: string;
   productName: string;
   price: number;
   quantity: number;
 };
 
-type CheckoutStore = {
+export type CheckoutStore = {
   order: Order;
   isLoading: boolean;
   error: string;
@@ -38,7 +38,7 @@ export const useCheckoutStore = create<CheckoutStore>((set) => ({
   createOrder: async (order: Order) => {
     try {
       set({ isLoading: true, error: "" });
-      const response = await fetch("/api/orders", {
+      const response = await fetch("http://localhost:5000/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

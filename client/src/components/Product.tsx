@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCartStore } from "../stores/useCartStore";
 import { IProduct } from "../stores/useProductStore";
 
 interface Props {
