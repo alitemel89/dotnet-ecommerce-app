@@ -12,6 +12,7 @@ namespace API.Models
     public string Address { get; set; }
     public string Phone { get; set; }
     public decimal TotalPrice { get; set; }
+
     public List<OrderItem> Items { get; set; }
     public bool IsDelivered { get; set; }
     }

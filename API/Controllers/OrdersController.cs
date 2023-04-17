@@ -29,7 +29,6 @@ namespace API.Controllers
 
             foreach (var item in order.Items)
             {
-                item.Id = order.OrderId;
                 _context.Orders.Add(order);
             }
 

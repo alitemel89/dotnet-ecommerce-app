@@ -45,6 +45,7 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.OrderItem", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OrderId")

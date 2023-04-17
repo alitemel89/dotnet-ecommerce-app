@@ -8,7 +8,7 @@ function OrderSummary() {
   const { cartItems, removeCartItem } = useCartStore();
 
   return (
-    <div className="md:mx-28 px-12 py-8 flex gap-8">
+    <div className="md:mx-28 px-12 py-8 md:flex md:space-y-0 space-y-4 gap-8">
       <div className="bg-white shadow-md rounded-md p-4 md:p-8 flex-1 md:w-2/3">
         {cartItems.map((item) => (
           <div

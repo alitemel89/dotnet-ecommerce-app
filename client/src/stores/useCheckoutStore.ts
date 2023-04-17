@@ -1,3 +1,4 @@
+import axios from "axios";
 import { create } from "zustand";
 
 export type Order = {
@@ -20,7 +21,6 @@ export type CheckoutStore = {
   isLoading: boolean;
   error: string;
   createOrder: (order: Order) => Promise<void>;
-  clearOrder: () => void;
   success: boolean;
 };
 
@@ -38,31 +38,17 @@ export const useCheckoutStore = create<CheckoutStore>((set) => ({
   createOrder: async (order: Order) => {
     try {
       set({ isLoading: true, error: "" });
-      const response = await fetch("http://localhost:5000/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(order),
-      });
-      if (response.ok) {
-        set({ isLoading: false, success: true });
+      const response = await axios.post(
+        "http://localhost:5000/api/orders",
+        order
+      );
+      if (response.data) {
+        set({ isLoading: false, success: true, order: response.data });
       } else {
         set({ isLoading: false, error: "Failed to create order" });
       }
     } catch (error) {
       set({ isLoading: false, error: "Failed to create order" });
     }
-  },
-  clearOrder: () => {
-    set({
-      order: {
-        customerName: "",
-        address: "",
-        phone: "",
-        items: [],
-        totalPrice: 0,
-      },
-    });
   },
 }));
