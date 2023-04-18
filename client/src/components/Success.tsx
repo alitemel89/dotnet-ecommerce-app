@@ -1,8 +1,12 @@
-import React from "react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+
 
 function Success() {
   return (
     <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+      <div className="my-2 flex justify-center -mt-8">
+        <CheckCircleIcon className="text-green-600 w-24 h-24" />
+      </div>
       <div className="text-center">
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
           Thank you for your order!

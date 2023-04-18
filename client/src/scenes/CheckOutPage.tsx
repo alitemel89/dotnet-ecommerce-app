@@ -6,6 +6,7 @@ import { Order, useCheckoutStore } from "../stores/useCheckoutStore";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import MyTextField from "../components/MyTextField";
+import { ClimbingBoxLoader } from "react-spinners";
 
 function CheckoutPage() {
   const { cartItems } = useCartStore();
@@ -36,9 +37,7 @@ function CheckoutPage() {
 
   if (isLoading)
     return (
-      <p className="text-center text-lg text-indigo-600 animate-pulse">
-        Loading...
-      </p>
+      <ClimbingBoxLoader color="#0946d4" className="mx-auto" />
     );
 
   if (success) return <Success />;

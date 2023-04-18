@@ -4,6 +4,7 @@ import { useProductStore } from "../stores/useProductStore";
 import { formatPrice } from "../utils/cartUtils";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { useCartStore } from "../stores/useCartStore";
+import { ClimbingBoxLoader } from "react-spinners";
 
 function ProductDetails() {
   const { product, fetchSingleProduct } = useProductStore();
@@ -33,7 +34,7 @@ function ProductDetails() {
   }, [id, fetchSingleProduct]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <ClimbingBoxLoader color="#0946d4" className="mx-auto" />
   }
 
   return (

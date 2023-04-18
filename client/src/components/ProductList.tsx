@@ -8,9 +8,11 @@ function ProductList() {
 
   useEffect(() => {
     fetchProducts();
+    // eslint-disable-next-line
   }, []);
 
-  if (isLoading) return <ClimbingBoxLoader color="#000" className="mx-auto" />;
+  if (isLoading)
+    return <ClimbingBoxLoader color="#0946d4" className="mx-auto" />;
 
   return (
     <div className="bg-slate-100">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Signup() {
   return (
-    <div className="bg-slate-200 grid grid-cols-2 rounded-lg mx-auto">
+    <div className="bg-slate-200 md:grid md:grid-cols-2 grid grid-cols-1 mx-auto">
       <div className="mx-auto flex-col my-auto">
         <h3 className="text-2xl font-medium leading-6 text-gray-900 my-8">
           Sign up for our newsletter

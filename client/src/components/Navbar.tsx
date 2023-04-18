@@ -45,59 +45,65 @@ function Navbar() {
         </div>
 
         {/* My Account */}
-        <div className="flex items-center space-x-2">
-          <UserCircleIcon className="h-6 w-6 cursor-pointer" />
-          <p className="md:flex hidden cursor-pointer md:w-max">My Account</p>
-          <span
-            className="absolute right-29 top-8 rounded-full bg-red-600 w-4 h-4 
+        <Link to="/orders">
+          <div className="flex items-center space-x-2">
+            <UserCircleIcon className="h-6 w-6 cursor-pointer" />
+            <p className="md:flex hidden cursor-pointer md:w-max">My Account</p>
+            <span
+              className="absolute right-29 top-8 rounded-full bg-red-600 w-4 h-4 
             p-0 m-0 text-white font-mono text-sm leading-tight text-center animate-bounce"
-          ></span>
-        </div>
+            ></span>
+          </div>
+        </Link>
 
         {/* CartIcon */}
-        <div
-          className="ml-4 flex items-center"
-          onMouseLeave={() => setOpen(false)}
-        >
-          <ShoppingBagIcon
-            className="h-6 w-6 cursor-pointer"
-            onMouseOver={() => setOpen(true)}
-          />
-          {cartItems.length ? (
-            <span
-              className="absolute right-6 top-8 md:right-10 md:top-8 rounded-full bg-emerald-600 w-4 h-4 
-            p-0 m-0 text-white font-mono text-sm leading-tight text-center"
-            >
-              {cartItems.length}
-            </span>
-          ) : (
-            <span className="hidden"></span>
-          )}
-
+        <Link to="/cart">
           <div
-            className={`hidden md:absolute z-50 top-10 w-96 bg-gray-50 right-16
-           py-2 mt-2 rounded-lg shadow-xl  ${open ? "md:block" : "hidden"}`}
+            className="md:ml-4 flex items-center"
+            onMouseLeave={() => setOpen(false)}
           >
-            {/* CartItems */}
-            {cartItems.map((item) => (
-              <DropdownItem
-                key={item.productId}
-                name={item.productName}
-                description={item.productDescription}
-                price={item.productPrice}
-                quantity={item.quantity}
-                category={item.productCategory}
-              />
-            ))}
-            <Link to="/cart">
-            <button
-              className={`${cartItems.length === 0 ? "hidden" : "btn px-2"}`}
+            <ShoppingBagIcon
+              className="h-6 w-6 cursor-pointer -ml-4"
+              onMouseOver={() => setOpen(true)}
+            />
+            {cartItems.length ? (
+              <span
+                className="absolute top-8 right-8 sm:right-10 sm:top-8 md:right-10 md:top-8 rounded-full bg-emerald-600 w-4 h-4 
+            p-0 m-0 text-white font-mono text-sm leading-tight text-center"
+              >
+                {cartItems.length}
+              </span>
+            ) : (
+              <span className="hidden"></span>
+            )}
+
+            <div
+              className={`hidden md:absolute z-50 top-10 w-96 bg-gray-50 right-16
+           py-2 mt-2 rounded-lg shadow-xl  ${open ? "md:block" : "hidden"}`}
             >
-              Complete Shopping
-            </button>
-            </Link>
+              {/* CartItems */}
+              {cartItems.map((item) => (
+                <DropdownItem
+                  key={item.productId}
+                  name={item.productName}
+                  description={item.productDescription}
+                  price={item.productPrice}
+                  quantity={item.quantity}
+                  category={item.productCategory}
+                />
+              ))}
+              <Link to="/cart">
+                <button
+                  className={`${
+                    cartItems.length === 0 ? "hidden" : "btn px-2"
+                  }`}
+                >
+                  Complete Shopping
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

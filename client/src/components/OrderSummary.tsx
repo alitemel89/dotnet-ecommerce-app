@@ -13,7 +13,7 @@ function OrderSummary() {
         {cartItems.map((item) => (
           <div
             key={item.productId}
-            className="flex items-center mb-4 border-b-2 border-indigo-100"
+            className="flex mb-4 border-b-2 border-indigo-100"
           >
             <img
               src={`/assets/${item.productCategory
@@ -33,7 +33,7 @@ function OrderSummary() {
               <div>
                 <button
                   onClick={() => removeCartItem(item.productId)}
-                  className="px-2 py-1 bg-slate-500 text-white text-sm rounded flex items-center"
+                  className="px-2 py-1 my-2 bg-slate-500 text-white text-sm rounded flex items-center"
                 >
                   Remove
                   <XMarkIcon className="w-4 h-4 ml-2" />
