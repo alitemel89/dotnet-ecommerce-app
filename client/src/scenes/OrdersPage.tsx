@@ -31,11 +31,11 @@ const OrdersPage = () => {
   }, []);
 
   return (
-    <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <div className="bg-white shadow-md rounded my-6 overflow-x-auto">
+    <div className="mx-auto py-6 sm:px-6 lg:px-8 bg-gray-100 h-screen">
+      <div className="bg-white shadow-md rounded my-6 overflow-x-auto md:mx-28">
         <table className="min-w-full table-auto">
           <thead>
-            <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+            <tr className="bg-slate-600 text-white uppercase text-sm leading-normal py-3 px-6 text-left">
               <th className="py-3 px-6 text-left">Order ID</th>
               <th className="py-3 px-6 text-left">Customer Name</th>
               <th className="py-3 px-6 text-left">Address</th>
