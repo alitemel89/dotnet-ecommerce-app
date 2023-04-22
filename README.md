@@ -35,6 +35,8 @@ The application uses an SQLite database. The database is located in the API fold
 
 ![Screenshot from 2023-04-15 19-20-52](https://user-images.githubusercontent.com/64444827/232704866-63bbc466-ba2a-490c-9e9b-94f64be20f03.png)
 
+![Screenshot from 2023-04-22 17-14-47](https://user-images.githubusercontent.com/64444827/233790051-5a834cf8-b128-46c4-bbe7-4ce06daa0ce9.png)
+
 ![Screenshot from 2023-04-15 19-20-58](https://user-images.githubusercontent.com/64444827/232704935-5b590fc7-fef4-4ea4-bf94-3d3faa5bc043.png)
 
 ![Screenshot from 2023-04-15 19-20-26](https://user-images.githubusercontent.com/64444827/232705101-1ca08c01-91ee-4dd9-adcd-5c42d5fd70f5.png)
